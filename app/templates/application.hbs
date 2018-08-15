@@ -1,0 +1,18 @@
+<div class="rr-container">
+    <div class="rr-page-header">
+        <!-- add link to index route -->
+        {{#link-to 'index'}}
+            <h1 class="rr-app-title">Rock & Roll<small class="rr-subtitle"> with Ember.js</small></h1>
+        {{/link-to}}
+        {{#if session.isAuthenticated}}
+            <div class="rr-user-panel">
+                <span data-test-rr="user-email">{{session.data.authenticated.userEmail}}</span>
+            </div>
+            |
+            <span>{{link-to 'Logout' 'logout' data-test-rr="logout"}}</span>
+        {{/if}}
+    </div>
+    <div class="rr-main-content">
+       {{outlet}}
+    </div>
+</div>

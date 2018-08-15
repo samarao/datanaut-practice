@@ -1,0 +1,31 @@
+<div class="rr-sidebar">
+    <ul class="rr-list">
+        {{#each model as |band|}}
+            <li class="rr-list-item" data-test-rr="band-list-item">
+                {{#link-to "bands.band" band.id class="rr-band-link" data-test-rr="band-link"}}
+                    {{capitalize band.name}}
+                    <span class="rr-pointer">
+                        {{fa-icon "angle-right"}}
+                    </span>
+                {{/link-to}}
+            </li>
+        {{/each}}
+    </ul>
+    <div class="rr-new-label">
+        {{#if isAddingBand}}
+            <form class="rr-inline-form" onsubmit={{action "saveBand"}}>
+                {{input type="text" class="rr-input" value=newBandName placeholder="New band" data-test-rr="new-band-input"}}
+                <button type="submit" class="rr-action-button" disabled={{isAddButtonDisabled}} data-test-rr="new-band-button">Add</button>
+                <span class="rr-cancel-icon" onclick={{action "cancelAddBand"}}>{{fa-icon "times"}}</span>
+            </form>
+        {{else}}
+            <label onclick={{action "addBand"}} data-test-rr="new-band-label">
+                {{fa-icon "plus"}}
+                <span class="m11">Add new band</span>
+            </label>
+        {{/if}}
+    </div>
+</div>
+<div class="rr-main-panel">
+    {{outlet}}
+</div>

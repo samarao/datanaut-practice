@@ -1,0 +1,21 @@
+<section class="rr-panel b--solid br1 bw1">
+    <div class="rr-inline-form fr">
+        <div class="rr-inline-form-group">
+            <span class="rr-cancel-icon-let" onclick={{action (mut isEditing) false}}>
+                {{fa-icon "times"}}
+            </span>
+            <button type="button" class="rr-action-button m11" onclick={{action (if isEditing "save" "edit")}}>
+                {{if isEditing "Save" "Edit"}}
+            </button>
+        </div>
+    </div>
+    <h3>Description</h3>
+    {{#if isEditing}}
+        {{#if showErrors.description}}
+            <div class="rr-form-field-error" data-test-rr="description-error">{{v-get model 'description' 'message'}}</div>
+        {{/if}}
+            {{textarea class="rr-textarea" value=model.description}}
+    {{else}}
+        <p class="1h-copy">{{model.description}}</p>
+    {{/if}}
+</section>

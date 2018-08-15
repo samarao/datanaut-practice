@@ -1,0 +1,30 @@
+<div class="rr-form-container">
+    <h3>Sign up for R&R</h3>
+    <form onsubmit={{action "signUp"}}>
+        <div class="rr-inline-form-row">
+            {{#if showErrors.email}}
+            <div class="rr-form-field-error" data-test-rr="email-error">{{v-get model 'email' 'message'}}</div>
+            {{/if}}
+            <label for="email">Email</label>
+            {{input type="email" class="rr-input ml-auto" id="email"
+            value=model.email focus-out=(action (mut showErrors.email) true)}}
+        </div>
+        <div class="rr-inline-form-row">
+            {{#if showErrors.password}}
+            <div class="rr-form-field-error" data-test-rr="password-error">{{v-get model 'password' 'message'}}</div>
+            {{/if}}
+            <label for="password">Password</label>
+            {{input type="password" class="rr-input ml-auto" id="password"
+            value=model.password focus-out=(action (mut showErrors.password) true)}}
+        </div>
+        <div class="rr-form-footer">
+            <div class="rr-button-panel">
+                <button type="submit" class="rr-action-button" disabled={{v-get model 'isInvalid'}} data-test-rr="sign-up-button">Sign up</button>
+            </div>
+            <div class="rr-cta">
+                <span class="mr1">Already have an account?</span>
+                    {{link-to 'Log in' 'login' class="underline" }}
+            </div>
+        </div>
+    </form>
+</div>
