@@ -1,0 +1,16 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "datanaut-practice",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
